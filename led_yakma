@@ -1,0 +1,30 @@
+void main() {
+      trisb=0x00;
+      portb=0x0F;
+      trisd.rd0=1; //RD0 pini giriş olarak yönlendirildi.
+      portd.rd0=0; // RD0 pini sıfırlandı.
+      while(1){
+          if(portd.rd0){
+             portb.rb4=0;
+             portb.rb5=0;
+             portb.rb6=0;
+             portb.rb7=0;
+             portb.rb0=1;
+             portb.rb1=1;
+             portb.rb2=1;
+             portb.rb3=1;
+          while(portd.rd0);  //Butona basılmasını bekle.
+          }
+          if(portd.rd1){
+             portb.rb0=0;
+             portb.rb1=0;
+             portb.rb2=0;
+             portb.rb3=0;
+             portb.rb4=1;
+             portb.rb5=1;
+             portb.rb6=1;
+             portb.rb7=1;
+          while(portd.rd1); //Butona basılmasını bekle.
+          }
+      }
+}
